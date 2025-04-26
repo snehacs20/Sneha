@@ -1,0 +1,83 @@
+1]#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter number of houses: ";
+    cin >> n;
+    int val[n];
+    cout << "Enter house values: ";
+    for (int i = 0; i < n; i++) {
+        cin >> val[i];
+    }
+    int prev1 = 0, prev2 = 0;
+    for (int i = 0; i < n; i++) {
+        int pick = val[i] + prev1;
+        int notPick = prev2;
+        int curr = max(pick, notPick);
+        prev1 = prev2;
+        prev2 = curr;
+    }
+    cout << "Maximum stolen value: " << prev2;
+    return 0;
+}
+
+
+
+
+2]#include <iostream>
+  using namespace std;
+  int main() {
+  int rows = 5;
+
+    for (int i = 1; i <= rows; i++) {
+        
+        for (int j = 1; j <= 4; j++) {
+        cout << i;
+        }
+
+        
+        cout << i + 1 << endl;
+    }
+
+    return 0;
+  }
+
+
+
+
+
+
+3]#include <iostream>
+using namespace std;
+int main() {
+    int n;
+    cout << "Enter a number: ";
+    cin >> n;
+    int original = n;
+    int digits = 0;
+    int num = n;
+    while (num > 0) {
+        digits++;
+        num /= 10;
+    }
+    int result = 0;
+    num = n;
+    while (num > 0) {
+        int digit = num % 10;
+
+        int mul = 1;
+        for (int i = 0; i < digits; i++) {
+            mul = mul * digit;
+        }
+
+        result += mul;
+        num /= 10;
+        digits--;
+    }
+    if (result == original)
+        cout << original << " is a Disarium number.";
+    else
+        cout << original << " is not a Disarium number.";
+
+    return 0;
+}
